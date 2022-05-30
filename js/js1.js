@@ -1,43 +1,36 @@
-const url = 'https://localhost:8080';
+const url = "http://localhost:8080/cykelrytter";
+let cykelrytter = [];
 
-let cykkelrytter =[];
-
-function fetchCykelrytter() {
-  fetch(url).then(res => res.json())
+function fetchCykelRytter() {
+  fetch(url)
+    .then(res => res.json())
     .then(data => {
-      cykkelrytter = data
+      cykelrytter = data
       console.log(data)
-      createCykelrytterRows(cykkelrytter);
+      opretRække(cykelrytter)
     })
 }
 
-function createCykelrytterRows() {
-  const rows = cykkelrytter.map(cykkelrytter => `
-  <tr>
-  <td>
-  ${cykkelrytter.rytterNavn}
-</td>
- <td>
-  ${cykkelrytter.rytterEfternavn}
-</td>
- <td>
-  ${cykkelrytter.rytterAlder}
-</td>
- <td>
-  ${cykkelrytter.rytterLand}
-</td>
- <td>
-  ${cykkelrytter.bjergPoint}
-</td>
- <td>
-  ${cykkelrytter.spurtPoint}
-</td>
- <td>
-  ${cykkelrytter.cykelHold}
-</td>
-</tr>
-  `);
-  document.getElementById('tbCykelrytter').innerHTML = rows.join('');
-}
+fetchCykelRytter();
 
-fetchCykelrytter();
+
+function opretRække(cr) {
+  const rows = cr.map(cr => `
+  <tr>
+  <td>${cr.rytterNavn}</td>
+  <td>${cr.rytterEfternavn}</td>
+  <td>${cr.rytterAlder}</td>
+  <td>${cr.rytterLand}</td>
+  <td>${cr.bjergPoint}</td>
+  <td>${cr.spurtPoint}</td>
+  <td>${cr.cykkelhold}</td>
+  <tr>
+  `)
+  let kolone = ` <tr>
+ <th>Navn</th>
+ <th>Efternavn</th>
+ <th>Hold</th>
+</tr>`
+
+  document.getElementById("tbCykelrytter").innerHTML = rows.join("");
+}

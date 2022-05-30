@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+
   <script src="../js/js1.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
 </head>
 <body>
 
 <table>
+  <button id="opret-btn" class="buttons">Opret cykelrytter</button>
   <thead>
   <tr>
     <th>Navn</th>
@@ -15,14 +21,42 @@
     <th>Alder</th>
     <th>Land</th>
     <th>Tid</th>
-    <th>Bjerg Point</th>
-    <th>Spurt Point</th>
+    <th>Bjerg-Point</th>
+    <th>Spurt-Point</th>
     <th>Cykelhold</th>
   </tr>
   </thead>
   <tbody id="tbCykelrytter"></tbody>
-
 </table>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Opret cykelrytter
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Opret cykelrytter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
+        <button type="button" class="btn btn-primary">Gem cykelrytter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>
