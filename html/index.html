@@ -3,58 +3,31 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Opret</title>
 
   <script src="../js/js1.js"></script>
+  <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+          crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/styleIndex.css">
 </head>
 <body>
-
-<table>
-  <button id="opret-btn" class="buttons">Opret cykelrytter</button>
-  <thead>
-  <tr>
-    <th>Navn</th>
-    <th>Efternavn</th>
-    <th>Alder</th>
-    <th>Land</th>
-    <th>Tid</th>
-    <th>Bjerg-Point</th>
-    <th>Spurt-Point</th>
-    <th>Cykelhold</th>
-  </tr>
-  </thead>
-  <tbody id="tbCykelrytter"></tbody>
-</table>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-Opret cykelrytter
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Opret cykelrytter</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
-        <button type="button" class="btn btn-primary">Gem cykelrytter</button>
-      </div>
-    </div>
-  </div>
+<div class="form-style-5">
+  <form>
+    <fieldset>
+      <input type="text" name="field1" placeholder="Din Fornavn">
+      <input type="text" name="field2" placeholder="Din Efternavn">
+      <input type="text" name="field3" placeholder="Din Alder">
+      <input type="text" name="field4" placeholder="Din Bjergpoint">
+      <input type="text" name="field5" placeholder="Din Spurtpoint">
+      <input type="text" name="field6" placeholder="Din Tid">
+      <input type="text" name="field7" placeholder="Din Hold">
+      <input type="submit" value="Gem cykelrytter" />
+  </form>
 </div>
 
 
