@@ -4,34 +4,62 @@
 <head>
   <meta charset="UTF-8">
   <title>Opret</title>
-
-  <script src="../js/js1.js"></script>
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-          crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/styleIndex.css">
-  <script src="../js/opretCykelrytter.js"></script>
 </head>
 <body>
 
 <div class="form-style-5">
   <form>
-    <fieldset>
-      <input type="text" id="create-fn" name="field1" placeholder="Din Fornavn">
-      <input type="text" id="create-ef" name="field2" placeholder="Din Efternavn">
-      <input type="text" id="create-a" name="field3" placeholder="Din Alder">
-      <input type="text" id="create-bpoint" name="field4" placeholder="Din Bjergpoint">
-      <input type="text" id="create-spoint" name="field5" placeholder="Din Spurtpoint">
-      <input type="text" id="create-tid" name="field6" placeholder="Din Tid">
-      <input type="text" id="create-hold" name="field7" placeholder="Din Hold">
-      <input type="submit" id="btn-gem" value="Gem">
+    <input type="text" id="create-fn" name="field1" placeholder="Din Fornavn">
+    <input type="text" id="create-ef" name="field2" placeholder="Din Efternavn">
+    <input type="text" id="create-land" name="field2" placeholder="Din Land">
+    <input type="text" id="create-a" name="field3" placeholder="Din Alder">
+    <input type="text" id="create-bpoint" name="field4" placeholder="Din Bjergpoint">
+    <input type="text" id="create-spoint" name="field5" placeholder="Din Spurtpoint">
+    <input type="text" id="create-tid" name="field6" placeholder="Din Tid">
+    <button class="ddown-hold">Vælg hold</button>
+    <input type="submit" id="btn-gem" value="Gem">
   </form>
 </div>
 
 
 </body>
 </html>
+<script>
+  setupHandlers()
+
+  function gemCykelrytter() {
+    const cykelrytterObj = {}
+    cykelrytterObj.rytterNavn = document.getElementById("create-fn").value
+    cykelrytterObj.rytterEfternavn = document.getElementById("create-ef").value
+    cykelrytterObj.rytterAlder = document.getElementById("create-a").value
+    cykelrytterObj.rytterTid = document.getElementById("create-tid").value
+    cykelrytterObj.bjergPoint = document.getElementById("create-bpoint").value
+    cykelrytterObj.spurtPoint = document.getElementById("create-spoint").value
+    cykelrytterObj.rytterLand = document.getElementById("create-land").value
+
+    console.log(cykelrytterObj)
+    const method = "POST"
+    const url = 'http://localhost:8080/opret/cykelrytter';
+    const options = {
+      method: method,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(cykelrytterObj)
+    }
+    fetch(url, options)
+      .then(res => {
+        if (!res.ok) {
+          throw "Fejl, kan ikke oprette cykelrytter"
+        }
+      })
+  }
+
+
+  function setupHandlers() {
+    document.getElementById('btn-gem').onclick = gemCykelrytter;
+  }
+
+</script>
